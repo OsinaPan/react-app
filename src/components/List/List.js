@@ -1,7 +1,7 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
-import { useState } from 'react';
-import shortid from 'shortid';
+// import { useState } from 'react';
+// import shortid from 'shortid';
 import ColumnForm from '../ColumnForm/ColumnForm';
 import { useSelector } from 'react-redux';
 import { getAllColumns } from '../redux/store';
