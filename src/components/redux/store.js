@@ -12,6 +12,8 @@ export const addCollumn = (payload) => ({type: 'ADD_COLUMN', payload});
 
 export const addCard = (payload) => ({type: 'ADD_CARD', payload})
 
+export const searchString = (payload) => ({type: 'SEARCHSTRING', payload})
+
 const reducer = (state, action) => {
   switch(action.type) {
     case 'ADD_COLUMN':
