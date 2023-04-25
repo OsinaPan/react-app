@@ -20,6 +20,10 @@ export const getColumnsByList = ({columns}, listId ) => columns.filter(column =>
 
 export const getAllLists = (state) => state.lists;
 
+export const getSearchString = (state => state.searchString);
+
+export const updateSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
+
 const reducer = (state, action) => {
   switch(action.type) {
     case 'ADD_COLUMN':
