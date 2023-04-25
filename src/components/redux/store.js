@@ -1,8 +1,23 @@
-import { legacy_createStore as createStore} from 'redux'
+//import { legacy_createStore as createStore} from 'redux'
+//import shortid from 'shortid';
+//import { strContains } from '../utils/strContains';
+import { createStore, combineReducers } from 'redux';
 import initialState from './initialState';
-import shortid from 'shortid';
-import { strContains } from '../utils/strContains';
+import listsReducer from './listsRedux';
+import columnsReducer from './columnsRedux';
+import cardsReducer from './cardRedux';
+import searchStringReducer from './searchStringRedux';
 
+const subreducers = {
+  lists: listsReducer,
+  columns: columnsReducer,
+  cards: cardsReducer,
+  searchString: searchStringReducer
+}
+
+const reducer = combineReducers(subreducers);
+
+/*
 export const getFilteredCards = ({cards, searchString},  columnId) => 
 cards.filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
@@ -42,6 +57,6 @@ const reducer = (state, action) => {
       return { ...state, cards: state.cards.map(card => (card.id === action.payload) ? { ...card, isFavorite: !card.isFavorite } : card) };
   }
 };
-
+*/
 const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
